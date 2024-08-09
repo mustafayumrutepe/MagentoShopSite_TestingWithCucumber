@@ -54,4 +54,23 @@ public class _01_Step {
             lp.verifyContainsText(lp.getWebElement(e),"already");
         }
     }
+
+    @When("Click on the LocatorPage in element")
+    public void clickOnTheLocatorPageInElement(DataTable dataTable) {
+        List<String> stringList=dataTable.asList(String.class);
+        for (String e: stringList){
+            lp.myClick(lp.getWebElement(e));
+        }
+    }
+
+    @And("The transaction was completed successfully.")
+    public void theTransactionWasCompletedSuccessfully(DataTable dataTable) {
+        List<List<String>> stringList=dataTable.asLists(String.class);
+        for (int i = 0; i < stringList.size(); i++) {
+            WebElement e=lp.getWebElement(stringList.get(i).get(0));
+            String strData = stringList.get(i).get(1);
+
+            lp.verifyContainsText(e,strData);
+        }
+    }
 }
