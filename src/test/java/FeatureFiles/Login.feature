@@ -12,3 +12,8 @@ Feature: Login Functionality
       |SigninButton|
       And The transaction was completed successfully.
       |JacopJames|Welcome|
+
+
+
+
+
