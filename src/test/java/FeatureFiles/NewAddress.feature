@@ -1,24 +1,30 @@
-Feature: Add Address Functionality
-
+Feature: Login Functionality
   Background:
-    Given  Navigate to website
-    Then Click Singİn button
-    When Enter username and password and click login button
-    Then User should login successfully
-    Scenario :
-      Then Click on the LocatorPage in element
+    Given Navigate to website
+    When Click on the LocatorPage in element
+      |Signin      |
+    Then Fill out the account creation form
+      |Email       |jj@gmail.com|
+      |Password    |jjames123..|
+    And Click on the LocatorPage in element
+      |SigninButton|
+    And The transaction was completed successfully.
+      |JacopJames|Welcome|
+     Scenario:
+    Then Click on the LocatorPage in element
       |Action_switch  |
-#      |MyAccount      |
-#      |ManageAddresses|
-#      And Fill out the account creation form
-#      |Company  |TechnoCenter|
-#      |telephone|05397245236 |
-#      |street_1 |Akıncılar   |
-#      |city     |Mardin      |
-#      |zip      |23134       |
-#      And Select the my option name as "Country" name as
-#      |Country        |Region       |
-#      |country_Select |United States|
-#      |region_Select  |Virginia     |
+      |MyAccount      |
+      |ManageAddresses|
+       And Fill out the account creation form
+      |Company  |TechnoCenter|
+      |telephone|05397245236 |
+      |street_1 |Akıncılar   |
+      |city     |Mardin      |
+      |zip      |23134       |
+      And  Select my Choice
+      |country_Select |United States|
+      |region_Select  |Virginia     |
+       And Click on the LocatorPage in element
+       |Save_Address|
 
 

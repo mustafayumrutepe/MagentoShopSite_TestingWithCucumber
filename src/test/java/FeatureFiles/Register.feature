@@ -16,3 +16,7 @@ Feature: Register Functionality
       |createAnAccountButton|
     And Verify account creation
       |verifying|
+
+
+
+
