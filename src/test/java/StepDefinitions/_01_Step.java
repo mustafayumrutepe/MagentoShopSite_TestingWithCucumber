@@ -69,7 +69,6 @@ public class _01_Step {
         for (int i = 0; i < stringList.size(); i++) {
             WebElement e=lp.getWebElement(stringList.get(i).get(0));
             String strData = stringList.get(i).get(1);
-
             lp.verifyContainsText(e,strData);
         }
     }
