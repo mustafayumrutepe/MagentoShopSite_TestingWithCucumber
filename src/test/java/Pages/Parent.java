@@ -51,8 +51,16 @@ public class Parent {
         wait.until(ExpectedConditions.elementToBeClickable(element));
         Select select=new Select(element);
         select.selectByVisibleText(string);
-
     }
 
+    public int myGetText_Integer_(WebElement element){
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+        scrollToElement(element);
+        String string=element.getText();
+        String strNumber=string.replaceAll("[^0-9]","");
+        int number = Integer.parseInt(strNumber);
+
+        return number;
+    }
 
 }

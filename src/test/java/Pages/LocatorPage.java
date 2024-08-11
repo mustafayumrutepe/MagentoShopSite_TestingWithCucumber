@@ -39,6 +39,11 @@ public class LocatorPage extends Parent{
     @FindBy(xpath = "(//*[@class='swatch-option color'])[2]")                         private WebElement SwatChoptionColor;
     @FindBy(xpath = "//*[text()='Add to Cart']")                                      private WebElement AddtoCart;
     @FindBy(xpath = "//*[text()='shopping cart']")                                    private WebElement ShoppingCart;
+    @FindBy(css = "[class='action showcart']")                                        private WebElement goCart;
+    @FindBy(css = "[class='action viewcart']")                                        private WebElement viewAndEditCart;
+    @FindBy(xpath = "//*[@data-th='Price']")                                          private WebElement price;
+    @FindBy(xpath = "//*[@data-th='Qty']")                                            private WebElement quantity;
+    @FindBy(xpath = "//*[@data-th='Subtotal']")                                       private WebElement subtotal;
 
 
     public WebElement getWebElement(String strElement){
@@ -74,9 +79,12 @@ public class LocatorPage extends Parent{
             case "SwatChoptionColor"       : return this.SwatChoptionColor;
             case "AddtoCart"               : return this.AddtoCart;
             case "ShoppingCart"            : return this.ShoppingCart;
+            case "goCart"                  : return this.goCart;
+            case "viewAndEditCart"         : return this.viewAndEditCart;
+            case "price"                   : return this.price;
+            case "quantity"                : return this.quantity;
+            case "subtotal"                : return this.subtotal;
         }
         return null;
-
     }
-
 }
