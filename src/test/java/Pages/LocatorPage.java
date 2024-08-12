@@ -8,42 +8,42 @@ import org.openqa.selenium.support.PageFactory;
 public class LocatorPage extends Parent{
     public LocatorPage() {PageFactory.initElements(GWD.getDriver(),this);}
 
-    @FindBy(xpath = "(//*[text()='Create an Account'])[1]")                           private WebElement createAnAccount;
-    @FindBy(id = "firstname")                                                         private WebElement firstname;
-    @FindBy(id = "lastname")                                                          private WebElement lastname;
-    @FindBy(id = "email_address")                                                     private WebElement email;
-    @FindBy(id = "password")                                                          private WebElement password;
-    @FindBy(id = "password-confirmation")                                             private WebElement confirmPassword;
-    @FindBy(xpath = "//*[@class='action submit primary']")                            private WebElement createAnAccountButton;
-    @FindBy(xpath = "//*[@role='alert']")                                             private WebElement verifying;
-    @FindBy(xpath = "//*[@class='authorization-link']")                               private WebElement Signin;
-    @FindBy(name = "login[username]")                                                 private WebElement Email;
-    @FindBy(name = "login[password]")                                                 private WebElement Password;
-    @FindBy(xpath = "//*[@class='action login primary']")                             private WebElement SigninButton;
-    @FindBy(xpath = "(//*[text()='Welcome, Jacob James!'])[1]")                       private WebElement JacopJames;
-    @FindBy(xpath = "(//*[@class='action switch'])[1]")                               private WebElement Action_switch;
-    @FindBy(xpath = "((//*[@class='customer-menu'])[1]/ul/li)[1]")                    private WebElement MyAccount;
-    @FindBy(xpath = "//*[text()='Manage Addresses']")                                 private WebElement ManageAddresses;
-    @FindBy(xpath = "//*[@id='company']")                                             private WebElement Company;
-    @FindBy(xpath = "//*[@id='telephone']")                                           private WebElement telephone;
-    @FindBy(xpath = "//*[@id='street_1']")                                            private WebElement street_1;
-    @FindBy(xpath = "//*[@id='city']")                                                private WebElement city;
-    @FindBy(xpath = "//*[@id='country']")                                             private WebElement country_Select;
-    @FindBy(xpath = "//*[@id='zip']")                                                 private WebElement zip;
-    @FindBy(xpath = "//*[text()='Save Address']")                                     private WebElement Save_Address;
-    @FindBy(xpath = "//*[@id='region_id']")                                           private WebElement region_Select;
-    @FindBy(xpath = "//*[text()='Women']")                                            private WebElement Women;      //*****************
-    @FindBy(xpath = "(//*[text()='Hoodies & Sweatshirts'])[3]")                       private WebElement HoodiesSweatshirts;
-    @FindBy(xpath = "(//strong[@class='product name product-item-name'])[1]")         private WebElement CirceHoodedIceFleece;
-    @FindBy(xpath = "(//*[@class='swatch-option text'])[3]")                          private WebElement SwatchOptionText;
-    @FindBy(xpath = "(//*[@class='swatch-option color'])[2]")                         private WebElement SwatChoptionColor;
-    @FindBy(xpath = "//*[text()='Add to Cart']")                                      private WebElement AddtoCart;
-    @FindBy(xpath = "//*[text()='shopping cart']")                                    private WebElement ShoppingCart;
-    @FindBy(css = "[class='action showcart']")                                        private WebElement goCart;
-    @FindBy(css = "[class='action viewcart']")                                        private WebElement viewAndEditCart;
-    @FindBy(xpath = "//*[@data-th='Price']")                                          private WebElement price;
-    @FindBy(xpath = "//*[@data-th='Qty']")                                            private WebElement quantity;
-    @FindBy(xpath = "//*[@data-th='Subtotal']")                                       private WebElement subtotal;
+    @FindBy(xpath = "(//*[text()='Create an Account'])[1]")                    private WebElement createAnAccount;
+    @FindBy(id = "firstname")                                                  private WebElement firstname;
+    @FindBy(id = "lastname")                                                   private WebElement lastname;
+    @FindBy(id = "email_address")                                              private WebElement email;
+    @FindBy(id = "password")                                                   private WebElement password;
+    @FindBy(id = "password-confirmation")                                      private WebElement confirmPassword;
+    @FindBy(xpath = "//*[@class='action submit primary']")                     private WebElement createAnAccountButton;
+    @FindBy(xpath = "//*[@role='alert']")                                      private WebElement verifying;
+    @FindBy(xpath = "//*[@class='authorization-link']")                        private WebElement Signin;
+    @FindBy(name = "login[username]")                                          private WebElement Email;
+    @FindBy(name = "login[password]")                                          private WebElement Password;
+    @FindBy(xpath = "//*[@class='action login primary']")                      private WebElement SigninButton;
+    @FindBy(xpath = "(//*[text()='Welcome, Jacob James!'])[1]")                private WebElement JacopJames;
+    @FindBy(xpath = "(//*[@class='action switch'])[1]")                        private WebElement Action_switch;
+    @FindBy(xpath = "((//*[@class='customer-menu'])[1]/ul/li)[1]")             private WebElement MyAccount;
+    @FindBy(xpath = "//*[text()='Manage Addresses']")                          private WebElement ManageAddresses;
+    @FindBy(xpath = "//*[@id='company']")                                      private WebElement Company;
+    @FindBy(xpath = "//*[@id='telephone']")                                    private WebElement telephone;
+    @FindBy(xpath = "//*[@id='street_1']")                                     private WebElement street_1;
+    @FindBy(xpath = "//*[@id='city']")                                         private WebElement city;
+    @FindBy(xpath = "//*[@id='country']")                                      private WebElement country_Select;
+    @FindBy(xpath = "//*[@id='zip']")                                          private WebElement zip;
+    @FindBy(xpath = "//*[text()='Save Address']")                              private WebElement Save_Address;
+    @FindBy(xpath = "//*[@id='region_id']")                                    private WebElement region_Select;
+    @FindBy(xpath = "//*[text()='Women']")                                     private WebElement Women;      //*****************
+    @FindBy(xpath = "(//*[text()='Hoodies & Sweatshirts'])[3]")                private WebElement HoodiesSweatshirts;
+    @FindBy(xpath = "(//strong[@class='product name product-item-name'])[1]")  private WebElement CirceHoodedIceFleece;
+    @FindBy(xpath = "(//*[@class='swatch-option text'])[3]")                   private WebElement SwatchOptionText;
+    @FindBy(xpath = "(//*[@class='swatch-option color'])[2]")                  private WebElement SwatChoptionColor;
+    @FindBy(xpath = "//*[text()='Add to Cart']")                               private WebElement AddtoCart;
+    @FindBy(xpath = "//*[text()='shopping cart']")                             private WebElement ShoppingCart;
+    @FindBy(css = "[class='action showcart']")                                 private WebElement goCart;
+    @FindBy(css = "[class='action viewcart']")                                 private WebElement viewAndEditCart;
+    @FindBy(xpath = "//*[@data-th='Price']")                                   private WebElement price;
+    @FindBy(xpath = "//*[@data-th='Qty']")                                     private WebElement quantity;
+    @FindBy(xpath = "(//*[@data-th='Subtotal'])[2]")                           private WebElement subtotal;
 
 
     public WebElement getWebElement(String strElement){
