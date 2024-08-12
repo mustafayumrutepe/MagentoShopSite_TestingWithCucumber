@@ -42,7 +42,7 @@ public class LocatorPage extends Parent{
     @FindBy(css = "[class='action showcart']")                                 private WebElement goCart;
     @FindBy(css = "[class='action viewcart']")                                 private WebElement viewAndEditCart;
     @FindBy(xpath = "//*[@data-th='Price']")                                   private WebElement price;
-    @FindBy(xpath = "//*[@data-th='Qty']")                                     private WebElement quantity;
+    @FindBy(xpath = "//*[@title='Qty']")                                       private WebElement quantity;
     @FindBy(xpath = "(//*[@data-th='Subtotal'])[2]")                           private WebElement subtotal;
 
 
