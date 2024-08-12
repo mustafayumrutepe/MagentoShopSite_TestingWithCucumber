@@ -30,7 +30,9 @@ public class _03_Step {
                 array.add(numericValue);
             }
             else {
-                int numericValue = lp.myGetText_Integer_(lp.getWebElement(strElementsList.get(i)));
+                String text = lp.myGetText(lp.getWebElement(strElementsList.get(i)));
+                String strNumber=text.replaceAll("[^0-9]","");
+                int numericValue = Integer.parseInt(strNumber);
                 array.add(numericValue);
             }
         }

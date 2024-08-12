@@ -53,14 +53,12 @@ public class Parent {
         select.selectByVisibleText(string);
     }
 
-    public int myGetText_Integer_(WebElement element){
+    public String myGetText(WebElement element){
         wait.until(ExpectedConditions.elementToBeClickable(element));
         scrollToElement(element);
-        String string=element.getText();
-        String strNumber=string.replaceAll("[^0-9]","");
-        int number = Integer.parseInt(strNumber);
+        String text=element.getText();
 
-        return number;
+        return text;
     }
 
 }
