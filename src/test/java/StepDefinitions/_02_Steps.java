@@ -11,12 +11,13 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 
 public class _02_Steps {
     LocatorPage lp=new LocatorPage();
     WebDriverWait wait=new WebDriverWait(GWD.getDriver(), Duration.ofSeconds(15));
-
+    ArrayList<Integer> arrayList=new ArrayList<>();
     @And("Select my Choice")
     public void selectMyChoice(DataTable dataTable) {
         List<List<String>> lists=dataTable.asLists(String.class);
@@ -28,25 +29,26 @@ public class _02_Steps {
     }
 
     @Then("How many item in the basket")
-    public void howManyItemInTheBasket(DataTable dataTable) throws InterruptedException {
+    public void howManyItemInTheBasket(DataTable dataTable){
         List<String> list=dataTable.asList(String.class);
         for (String e:list){
             String NumberStr= lp.getWebElement(e).getText();
-            String NuberOnly=NumberStr.replaceAll("[^0-9]","");
-            int Numb=Integer.parseInt(NuberOnly);
-            int deger=Numb %10;
-         // mustafaya sor
-            for (int j = 0; j < deger; j++) {
-                Thread.sleep(3000);
-                lp.myClick(lp.getGoCart());
-                lp.myClick(lp.getAction_Delete());
-                lp.myClick(lp.getAction_accept());
-                lp.myClick(lp.getLogo());
-            }
-
+            int Numb=Integer.parseInt(NumberStr.replaceAll("[^0-9]",""));
+            arrayList.add(Numb);
+            System.out.println("Numb = " + Numb);
         }
+    }
 
-
-
+    @Then("Delete from All item in the basket")
+    public void deleteFromAllItemInTheBasket(DataTable table) {
+        List<String> list=table.asList(String.class);
+        for (String e: list){
+            WebElement element= lp.getWebElement(e);
+            for (int i = 0; i <arrayList.get(0) ; i++) {
+                if (lp.getWebElement(e)!=null){
+                    lp.myClick(element);
+                }else break;
+            }
+        }
     }
 }
