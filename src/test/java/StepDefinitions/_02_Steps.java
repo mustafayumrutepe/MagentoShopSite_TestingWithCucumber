@@ -1,16 +1,10 @@
 package StepDefinitions;
 
 import Pages.LocatorPage;
-import Utilities.GWD;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,15 +22,16 @@ public class _02_Steps {
         }
     }
 
-    @Then("How many item in the basket")
-    public void howManyItemInTheBasket(DataTable dataTable){
+    @Then("How many item in the cart")
+    public void howManyItemInTheCart(DataTable dataTable){
     List<WebElement> webElementList=lp.getCartItem(dataTable);
     int items=webElementList.size();
         arrayList.add(items);
+        System.out.println("There are "+items+" items in the cart");
     }
 
-    @Then("Delete from All item in the basket")
-    public void deleteFromAllItemInTheBasket(DataTable table) {
+    @Then("Delete from All item in the cart")
+    public void deleteFromAllItemInTheCart(DataTable table) {
         List<String> list=table.asList(String.class);
         for (String e: list){
             WebElement element= lp.getWebElement(e);

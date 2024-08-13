@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import java.time.Duration;
+import java.util.List;
 
 public class Parent {
 
@@ -61,4 +62,14 @@ public class Parent {
         return text;
     }
 
+    public void myHoverOver(WebElement element){
+        wait.until(ExpectedConditions.visibilityOf(element));
+        scrollToElement(element);
+        Actions actions=new Actions(GWD.getDriver());
+        actions.moveToElement(element).build().perform();
+    }
+
+    public static int myRandomNumber(int border){
+        return (int)(Math.random()*border);
+    }
 }

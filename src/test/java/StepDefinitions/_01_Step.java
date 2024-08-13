@@ -55,8 +55,8 @@ public class _01_Step {
         }
     }
 
-    @When("Click on the LocatorPage in element")
-    public void clickOnTheLocatorPageInElement(DataTable dataTable) {
+    @When("Click on these elements")
+    public void clickOnTheseElements(DataTable dataTable) {
         List<String> stringList=dataTable.asList(String.class);
         for (String e: stringList){
             lp.myClick(lp.getWebElement(e));

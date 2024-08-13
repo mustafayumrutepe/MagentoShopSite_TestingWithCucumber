@@ -2,12 +2,12 @@ Feature: Control of the number of products listed
 
   Background:
     Given Navigate to website
-    When Click on the LocatorPage in element
+    When Click on these elements
       |Signin      |
     Then Fill out the account creation form
       |Email       |jj@gmail.com|
       |Password    |jjames123..|
-    And Click on the LocatorPage in element
+    And Click on these elements
       |SigninButton|
     And The transaction was completed successfully.
       |JacopJames|Welcome|

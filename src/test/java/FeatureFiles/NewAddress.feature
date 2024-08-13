@@ -1,17 +1,17 @@
 Feature: Login Functionality
   Background:
     Given Navigate to website
-    When Click on the LocatorPage in element
+    When Click on these elements
       |Signin      |
     Then Fill out the account creation form
       |Email       |jj@gmail.com|
       |Password    |jjames123..|
-    And Click on the LocatorPage in element
+    And Click on these elements
       |SigninButton|
     And The transaction was completed successfully.
       |JacopJames|Welcome|
      Scenario:
-    Then Click on the LocatorPage in element
+    Then Click on these elements
       |Action_switch  |
       |MyAccount      |
       |ManageAddresses|
@@ -24,7 +24,7 @@ Feature: Login Functionality
       And  Select my Choice
       |country_Select |United States|
       |region_Select  |Virginia     |
-       And Click on the LocatorPage in element
+       And Click on these elements
        |Save_Address|
 
 
