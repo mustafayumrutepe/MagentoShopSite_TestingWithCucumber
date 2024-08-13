@@ -30,12 +30,9 @@ public class _02_Steps {
 
     @Then("How many item in the basket")
     public void howManyItemInTheBasket(DataTable dataTable){
-        List<String> list=dataTable.asList(String.class);
-        for (String e:list){
-            String NumberStr= lp.getWebElement(e).getText();
-            int Numb=Integer.parseInt(NumberStr.replaceAll("[^0-9]",""));
-            arrayList.add(Numb);
-        }
+    List<WebElement> webElementList=lp.getCartItem(dataTable);
+    int items=webElementList.size();
+        arrayList.add(items);
     }
 
     @Then("Delete from All item in the basket")

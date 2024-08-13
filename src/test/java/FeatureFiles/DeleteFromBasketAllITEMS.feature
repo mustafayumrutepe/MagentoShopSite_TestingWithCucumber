@@ -1,4 +1,5 @@
 Feature: Delete Functionality
+
   Background:
     Given Navigate to website
     When Click on the LocatorPage in element
@@ -12,11 +13,11 @@ Feature: Delete Functionality
       |JacopJames|Welcome|
 
     Scenario:
-      Then How many item in the basket
-      |counter_number|
-      And Click on the LocatorPage in element
-      |goCart|
-      |viewAndEditCart|
+      Then Click on the LocatorPage in element
+        |goCart|
+        |viewAndEditCart|
+      And How many item in the basket
+        |cartItem|
       Then Delete from All item in the basket
       |Remove_item|
       Then The transaction was completed successfully.
