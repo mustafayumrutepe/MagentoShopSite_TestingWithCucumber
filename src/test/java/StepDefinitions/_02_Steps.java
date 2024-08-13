@@ -16,8 +16,8 @@ import java.util.List;
 
 public class _02_Steps {
     LocatorPage lp=new LocatorPage();
-    WebDriverWait wait=new WebDriverWait(GWD.getDriver(), Duration.ofSeconds(15));
     ArrayList<Integer> arrayList=new ArrayList<>();
+
     @And("Select my Choice")
     public void selectMyChoice(DataTable dataTable) {
         List<List<String>> lists=dataTable.asLists(String.class);
@@ -35,7 +35,6 @@ public class _02_Steps {
             String NumberStr= lp.getWebElement(e).getText();
             int Numb=Integer.parseInt(NumberStr.replaceAll("[^0-9]",""));
             arrayList.add(Numb);
-            System.out.println("Numb = " + Numb);
         }
     }
 
@@ -45,9 +44,7 @@ public class _02_Steps {
         for (String e: list){
             WebElement element= lp.getWebElement(e);
             for (int i = 0; i <arrayList.get(0) ; i++) {
-                if (lp.getWebElement(e)!=null){
                     lp.myClick(element);
-                }else break;
             }
         }
     }
