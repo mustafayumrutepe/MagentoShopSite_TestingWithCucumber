@@ -32,7 +32,7 @@ public class LocatorPage extends Parent{
     @FindBy(xpath = "//*[@id='zip']")                                          private WebElement zip;
     @FindBy(xpath = "//*[text()='Save Address']")                              private WebElement Save_Address;
     @FindBy(xpath = "//*[@id='region_id']")                                    private WebElement region_Select;
-    @FindBy(xpath = "//*[text()='Women']")                                     private WebElement Women;      //*****************
+    @FindBy(xpath = "//*[text()='Women']")                                     private WebElement Women;
     @FindBy(xpath = "(//*[text()='Hoodies & Sweatshirts'])[3]")                private WebElement HoodiesSweatshirts;
     @FindBy(xpath = "(//strong[@class='product name product-item-name'])[1]")  private WebElement CirceHoodedIceFleece;
     @FindBy(xpath = "(//*[@class='swatch-option text'])[3]")                   private WebElement SwatchOptionText;
@@ -44,6 +44,9 @@ public class LocatorPage extends Parent{
     @FindBy(xpath = "//*[@data-th='Price']")                                   private WebElement price;
     @FindBy(xpath = "//*[@title='Qty']")                                       private WebElement quantity;
     @FindBy(xpath = "(//*[@data-th='Subtotal'])[2]")                           private WebElement subtotal;
+    @FindBy(css = "[class='action delete']")                                   private WebElement Action_Delete;
+    @FindBy(css = "[class='action-primary action-accept']")                    private WebElement action_accept;
+    @FindBy(xpath = "//*[@class='logo']")                                      private WebElement logo;
 
 
     public WebElement getWebElement(String strElement){
@@ -84,7 +87,14 @@ public class LocatorPage extends Parent{
             case "price"                   : return this.price;
             case "quantity"                : return this.quantity;
             case "subtotal"                : return this.subtotal;
+            case "Action_Delete"           : return this.Action_Delete;
+            case "action_accept"           : return this.action_accept;
+            case "logo"                    : return this.logo;
         }
         return null;
     }
+    public WebElement getAction_Delete() {return Action_Delete;}
+    public WebElement getAction_accept() {return action_accept;}
+    public WebElement getGoCart() {return goCart;}
+    public WebElement getLogo() {return logo;}
 }
