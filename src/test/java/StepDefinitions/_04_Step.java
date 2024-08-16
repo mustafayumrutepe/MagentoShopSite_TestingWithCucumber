@@ -7,13 +7,14 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class _04_Step {
     LocatorPage lp = new LocatorPage();
-    List<WebElement> selectedWatches = new ArrayList<>();
+    List<String> selectedWatches = new ArrayList<>();
 
     @When("Go over these elements")
     public void goOverTheseElements(DataTable dataTable) {
@@ -27,10 +28,10 @@ public class _04_Step {
     public void chooseARandomItem(DataTable dataTable) {
         List<WebElement> webElementList=lp.getListOfWatches(dataTable);
         int items=webElementList.size();
-        System.out.println("items = " + items);
         int selectedItem=Parent.myRandomNumber(items);
+        selectedWatches.add(webElementList.get(selectedItem).getText().substring(0,10).toString());
         lp.myClick(webElementList.get(selectedItem));
-        selectedWatches.add(webElementList.get(selectedItem));
+
 
     }
 
@@ -59,17 +60,23 @@ public class _04_Step {
 
         int selectedItem=Parent.myRandomNumber(items);
 
-        for (int i = 0; i < selectedWatches.size(); i++) {
-            if (webElementList.get(selectedItem).equals(selectedWatches.get(i))) {
-                selectedItem=Parent.myRandomNumber(items);
-                i=0;
+            for (int i = 0; i < selectedWatches.size(); i++) {
+                while (webElementList.get(selectedItem).getText().toString().substring(0,10).equals(selectedWatches.get(i))){
+                    selectedItem=Parent.myRandomNumber(items);
+                }
+                    selectedWatches.add(webElementList.get(selectedItem).getText().toString().substring(0,10));
+                    lp.myClick(webElementList.get(selectedItem));
+                    break;
             }
-        }
-        lp.myClick(webElementList.get(selectedItem));
     }
 
     @Then("Verify products are in the cart")
-    public void verifyProductsAreInTheCart() {
-        System.out.println("verifyProductsAreInTheCart runned");
+    public void verifyProductsAreInTheCart(DataTable dataTable) {
+        List<WebElement> webElementList=lp.getCartItem(dataTable);
+
+        for (int i = 0; i < webElementList.size(); i++) {
+            Assert.assertEquals(webElementList.size(),selectedWatches.size(),"These two numbers are not equal");
+            Assert.assertEquals(webElementList.get(i).getText().substring(0,10),selectedWatches.get(i),"These two texts are not equal");
+        }
     }
 }

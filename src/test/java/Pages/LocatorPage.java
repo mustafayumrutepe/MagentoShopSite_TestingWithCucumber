@@ -50,14 +50,14 @@ public class LocatorPage extends Parent{
     @FindBy(css = "[class='action delete']")                                   private WebElement Action_Delete;
     @FindBy(css = "[class='action-primary action-accept']")                    private WebElement action_accept;
     @FindBy(xpath = "//*[@class='logo']")                                      private WebElement logo;
-    @FindBy(xpath = "//*[@class='action action-delete']")                               private WebElement Remove_item;
-    @FindBy(xpath = "(//*[text()='You have no items in your shopping cart.'])[2]")      private WebElement Noitems;
-    @FindBy(xpath = "//*[@class='counter-number']")                                     private WebElement counter_number;
-    @FindBy(css = "[class='cart item']")                                                private List<WebElement> cartItem;
-    @FindBy(className = "subtitle empty")                                               private WebElement emptyCart;
-    @FindBy(xpath = "//*[text()='Gear']")                                               private WebElement gear;
-    @FindBy(xpath = "//*[@role='menu']//*[text()='Watches']")                           private WebElement watches;
-    @FindBy(css = "[class='item product product-item']")                                private List<WebElement> listOfWatches;
+    @FindBy(xpath = "//*[@class='action action-delete']")                                               private WebElement Remove_item;
+    @FindBy(xpath = "(//*[text()='You have no items in your shopping cart.'])[2]")                      private WebElement Noitems;
+    @FindBy(xpath = "//*[@class='counter-number']")                                                     private WebElement counter_number;
+    @FindBy(css = "[class='cart item']")                                                                private List<WebElement> cartItem;
+    @FindBy(xpath = "//*[text()='Gear']")                                                               private WebElement gear;
+    @FindBy(xpath = "//*[@role='menu']//*[text()='Watches']")                                           private WebElement watches;
+    @FindBy(id = "minicart-content-wrapper")                                                            private WebElement emptyCart;
+    @FindBy(css = "[class='products list items product-items']>[class='item product product-item']")    private List<WebElement> listOfWatches;
 
 
 
@@ -107,6 +107,7 @@ public class LocatorPage extends Parent{
             case "counter_number"          : return this.counter_number;
             case "gear"                    : return this.gear;
             case "watches"                 : return this.watches;
+            case "emptyCart"                 : return this.emptyCart;
         }
         return null;
     }

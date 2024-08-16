@@ -37,7 +37,7 @@ public class Parent {
 
     public void verifyContainsText(WebElement element, String value){
         wait.until(ExpectedConditions.textToBePresentInElement(element,value));
-        Assert.assertTrue(element.getText().toLowerCase().contains(value.toLowerCase()));
+        Assert.assertTrue(element.getText().toLowerCase().contains(value.toLowerCase()),"The text you are looking for was not found in the text.");
         //action la ESC ye basarak açık kutucuk veya mesaj var ise kapat
         new Actions(GWD.getDriver()).sendKeys(Keys.ESCAPE).build().perform();
     }
@@ -69,7 +69,11 @@ public class Parent {
         actions.moveToElement(element).build().perform();
     }
 
-    public static int myRandomNumber(int border){
-        return (int)(Math.random()*border);
+    public static int myRandomNumber(int border) {
+        if (border <= 0) {
+            throw new IllegalArgumentException("Border must be greater than 0");
+        }
+        return (int) (Math.random() * border);
     }
+
 }

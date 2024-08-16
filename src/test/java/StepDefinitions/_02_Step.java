@@ -1,6 +1,7 @@
 package StepDefinitions;
 
 import Pages.LocatorPage;
+import Utilities.GWD;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.WebElement;
@@ -8,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class _02_Steps {
+public class _02_Step {
     LocatorPage lp=new LocatorPage();
     ArrayList<Integer> arrayList=new ArrayList<>();
 
@@ -27,7 +28,6 @@ public class _02_Steps {
     List<WebElement> webElementList=lp.getCartItem(dataTable);
     int items=webElementList.size();
         arrayList.add(items);
-        System.out.println("There are "+items+" items in the cart");
     }
 
     @Then("Delete from All item in the cart")
@@ -38,6 +38,15 @@ public class _02_Steps {
             for (int i = 0; i <arrayList.get(0) ; i++) {
                     lp.myClick(element);
             }
+        }
+    }
+
+    @When("There is no any products in the cart")
+    public void thereIsNoAnyProductsInTheCart(DataTable dataTable) {
+        List<String> lists=dataTable.asList(String.class);
+        for (String e : lists){
+            if (lp.getWebElement(e).getText().contains("no items"))
+                GWD.quitDriver();
         }
     }
 }

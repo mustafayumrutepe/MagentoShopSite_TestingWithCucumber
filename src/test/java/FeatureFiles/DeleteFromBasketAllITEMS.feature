@@ -15,6 +15,9 @@ Feature: Delete Functionality
     Scenario:
       Then Click on these elements
         |goCart|
+      When There is no any products in the cart
+        |emptyCart|
+      Then Click on these elements
         |viewAndEditCart|
       And How many item in the cart
         |cartItem|

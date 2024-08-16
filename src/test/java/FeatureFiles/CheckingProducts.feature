@@ -54,7 +54,8 @@ Feature: Checking the products added to the cart
         |quantity |1|
       And Add to cart
         |AddtoCart|
+      Then Go to the cart
+        |goCart|
+        |viewAndEditCart|
       Then Verify products are in the cart
-
-      And How many item in the cart
-          |cartItem|
+        |cartItem|
