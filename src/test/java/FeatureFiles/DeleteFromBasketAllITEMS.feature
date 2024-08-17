@@ -12,17 +12,17 @@ Feature: Delete Functionality
     And The transaction was completed successfully.
       |JacopJames|Welcome|
 
-    Scenario:
-      Then Click on these elements
-        |goCart|
-      When There is no any products in the cart
-        |emptyCart|
-      Then Click on these elements
-        |viewAndEditCart|
-      And How many item in the cart
-        |cartItem|
-      Then Delete from All item in the cart
-      |Remove_item|
-      Then The transaction was completed successfully.
-      |Noitems|You have no items in your|
+  Scenario: Delete all items from the cart
+    When Click on these elements
+      | goCart          |
+    Then There is no any products in the cart
+      | emptyCart       |
+    Then Click on these elements for deleting scenario
+      | viewAndEditCart |
+    And How many item in the cart
+      | cartItem        |
+    Then Delete from All item in the cart
+      | Remove_item     |
+    Then The transaction was completed successfully.
+      | Noitems         | You have no items in your |
 

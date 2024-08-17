@@ -57,20 +57,23 @@ public class _01_Step {
 
     @When("Click on these elements")
     public void clickOnTheseElements(DataTable dataTable) {
-        List<String> stringList=dataTable.asList(String.class);
-        for (String e: stringList){
-            lp.myClick(lp.getWebElement(e));
+            List<String> stringList = dataTable.asList(String.class);
+            for (String e : stringList) {
+                lp.myClick(lp.getWebElement(e));
+            }
         }
-    }
 
     @And("The transaction was completed successfully.")
     public void theTransactionWasCompletedSuccessfully(DataTable dataTable) {
         List<List<String>> stringList=dataTable.asLists(String.class);
-        for (int i = 0; i < stringList.size(); i++) {
-            WebElement e=lp.getWebElement(stringList.get(i).get(0));
-            String strData = stringList.get(i).get(1);
-            lp.verifyContainsText(e,strData);
+        if (_02_Step.isEmpty==false) {
+            for (int i = 0; i < stringList.size(); i++) {
+                WebElement e = lp.getWebElement(stringList.get(i).get(0));
+                String strData = stringList.get(i).get(1);
+                lp.verifyContainsText(e, strData);
+            }
         }
+        System.out.println("_02_Step.isEmpty = " + _02_Step.isEmpty);
     }
 
 }

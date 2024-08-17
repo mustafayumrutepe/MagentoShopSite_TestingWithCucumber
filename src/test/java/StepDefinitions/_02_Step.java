@@ -5,6 +5,7 @@ import Utilities.GWD;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,29 +25,47 @@ public class _02_Step {
     }
 
     @Then("How many item in the cart")
-    public void howManyItemInTheCart(DataTable dataTable){
-    List<WebElement> webElementList=lp.getCartItem(dataTable);
-    int items=webElementList.size();
-        arrayList.add(items);
+    public void howManyItemInTheCart(DataTable dataTable) {
+        List<WebElement> webElementList = lp.getCartItem(dataTable);
+        if (isEmpty == false) {
+            int items = webElementList.size();
+            arrayList.add(items);
+        }
     }
 
     @Then("Delete from All item in the cart")
     public void deleteFromAllItemInTheCart(DataTable table) {
         List<String> list=table.asList(String.class);
-        for (String e: list){
-            WebElement element= lp.getWebElement(e);
-            for (int i = 0; i <arrayList.get(0) ; i++) {
+        if (isEmpty==false) {
+            for (String e : list) {
+                WebElement element = lp.getWebElement(e);
+                for (int i = 0; i < arrayList.get(0); i++) {
                     lp.myClick(element);
+                }
             }
         }
     }
+
+    public static boolean isEmpty=false;
 
     @When("There is no any products in the cart")
     public void thereIsNoAnyProductsInTheCart(DataTable dataTable) {
         List<String> lists=dataTable.asList(String.class);
         for (String e : lists){
-            if (lp.getWebElement(e).getText().contains("no items"))
-                GWD.quitDriver();
+            isEmpty=false;
+            if (lp.getWebElement(e).getText().contains("no items")) {
+                isEmpty=true;
+            }
+        }
+    }
+
+    @Then("Click on these elements for deleting scenario")
+    public void clickOnTheseElementsForDeletingScenario(DataTable dataTable) {
+        if (_02_Step.isEmpty==false) {
+            List<String> stringList = dataTable.asList(String.class);
+            for (String e : stringList) {
+                lp.myClick(lp.getWebElement(e));
+            }
         }
     }
 }

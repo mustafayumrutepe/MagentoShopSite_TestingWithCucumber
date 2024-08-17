@@ -14,14 +14,17 @@ Feature: Checking the products added to the cart
 
   Scenario: Clear the cart
     When Click on these elements
-      |goCart|
-      |viewAndEditCart|
-    Then How many item in the cart
-      |cartItem|
-    And Delete from All item in the cart
-      |Remove_item|
+      | goCart          |
+    Then There is no any products in the cart
+      | emptyCart       |
+    Then Click on these elements for deleting scenario
+      | viewAndEditCart |
+    And How many item in the cart
+      | cartItem        |
+    Then Delete from All item in the cart
+      | Remove_item     |
     Then The transaction was completed successfully.
-      |Noitems|You have no items in your|
+      | Noitems         | You have no items in your |
 
     Scenario: Add three different watches to cart
       When Go over these elements
